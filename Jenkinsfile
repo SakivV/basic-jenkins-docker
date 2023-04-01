@@ -1,10 +1,9 @@
 pipeline {
     agent any
-
     stages {
         stage('VerifyBranch') {
             steps {
-                echo $GIT_BRANCH
+                git branch: "${env.BRANCH_NAME}", url: "${env.REPO_URL}"
             }
         }
     }
