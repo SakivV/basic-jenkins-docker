@@ -11,5 +11,10 @@ pipeline {
                 sh 'docker -v'
             }
         }
+        stage('HelloDocker') {
+            steps {
+                sh 'docker run hello-world'
+            }
+        }
     }
 }
