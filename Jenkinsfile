@@ -11,10 +11,6 @@ pipeline {
                 sh 'docker -v'
             }
         }
-        stage('HelloDocker') {
-            steps {
-                sh 'sudo docker run hello-world'
-            }
-        }
+
     }
 }
