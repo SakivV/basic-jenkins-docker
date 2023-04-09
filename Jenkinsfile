@@ -13,7 +13,7 @@ pipeline {
         }
         stage('HelloDocker') {
             steps {
-                sh 'sudo docker run hello-world'
+                sh 'docker run hello-world'
             }
         }
     }
