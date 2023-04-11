@@ -21,5 +21,15 @@ pipeline {
                 sh 'docker build -t nginx-jbuild:1.0 .'
             }
         }
+
+        stage('LoginDocker') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
+                  sh 'docker login -u cloudmagicmaster -p ${dockerpwd}'
+              }
+            }
+        }
+
+
     }
 }
