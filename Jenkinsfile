@@ -16,5 +16,10 @@ pipeline {
                 sh 'docker run hello-world'
             }
         }
+        stage('BuildDocker') {
+            steps {
+                sh 'docker build -t nginx-jbuild:1.0 .'
+            }
+        }
     }
 }
