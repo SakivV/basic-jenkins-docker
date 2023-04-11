@@ -18,14 +18,15 @@ pipeline {
         }
         stage('BuildDocker') {
             steps {
-                sh 'docker build -t nginx-jbuild:1.0 .'
+                sh 'docker build -t cloudmagicmaster/cloudnation:1.0 .'
             }
         }
 
-        stage('LoginDocker') {
+        stage('PushImage') {
             steps {
                 withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
                   sh 'docker login -u cloudmagicmaster -p ${dockerpwd}'
+                  sh 'docker push cloudmagicmaster/cloudnation:1.0'
               }
             }
         }
